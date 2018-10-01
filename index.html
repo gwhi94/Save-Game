@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>saveGame</title>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="stylesheet.css">
+	  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="moment.js"></script>
+  </head>
+  
+  <body>
+
+  	<nav class="navbar navbar-inverse navbar-static-top" role="navigation" id="stickyNav">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<div class="navbar-brand brand">saveGame
+							
+						</div>
+					</div>
+
+                	<ul class="nav navbar-nav navbar-right">						
+						<li><a href="#about">Help</a></li>												
+					</ul>			
+				</div>
+			
+			<div id="navSeperator">
+			</div>
+
+			</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  	
+  	<div class="container"> 		
+  		<div class="row portalRow" style="height: 100vh;"> 			
+  			<div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 col-sm-offset-2 col-md-offset-3 col-lg-offset-3 portal">  				
+  				<div class="row">
+  					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 innerPortal"> 
+  						<div class='plusGame'>
+  							<span class='glyphicon glyphicon-plus text-center'></span>
+						</div>	 										
+  					</div>
+  				</div> 				
+  			</div>
+  		</div>
+  	</div>
+
+
+
+
+  		<div class="modalAdd">
+	  		<div id="gameInput"> 				  		
+		  		<form>	  				
+			  		<div class="form-group">
+			  			<label for="gameName"style="color: white;">Name of Game:</label>
+			  			<input type="text" class="form-control" id="gameName">
+			  		</div>
+			  		<div class = "form-group">
+			  			<label for ="gamePlatform" style="color: white;">Platform:</label>
+			  			<select class="form-control" id="gamePlat">
+			  				<option>PS4</option>
+			  				<option>XBOX ONE</option>
+			  				<option>PC</option>
+			  				<option>NINTENDO SWITCH</option>
+			  				<option>NINTENDO DS</option>
+			  				<option>NINTENDO WII</option>
+			  				<option>PS VITA</option>
+			  			</select>
+			  		</div>
+			  		<div class="form-group">
+			  			<label for="releaseDate"style="color: white;"">Release Date (DD/MM/YYYY):</label>
+			  			<input type="text" class="form-control" id="gameRelease">
+			  		</div>
+			  		<div class="form-group">
+			  			<label for="price"style="color: white;">Price:</label>
+			  			<input type="text" class="form-control" id="gamePrice">
+			  		</div>
+			  		<button type="button" class="btn btn-default" id="addGameBtn">Add</button>			  			
+			  	</form>
+	  		</div>
+	  	</div>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+  </body>
+
+
+ 	<script src="js.js"></script>
+</html>
