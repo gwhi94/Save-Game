@@ -20,23 +20,22 @@ body{
 }
 
 .innerPortal{
-	border:2px solid #d35400;
+	border:2px solid #e74c3c;
 	height:600px;
 	margin-top: 100px;
 	border-radius: 20px;
 
 
 }
-#name,#plat,#release,#price{	
+#name,#plat,#release,#priority{	
 	color: white;
-	margin-right: 0px;
-	padding-right: 0px;
 
 
 }
 
 #name{
 	display: inline-block;
+	margin-bottom: 5px;
 }
 
 #plat{
@@ -48,15 +47,13 @@ body{
 	border-bottom: 3px solid #f39c12;
 	width:100%;
 }
-#name{
-	margin-bottom: 5px;
-}
+
 
 .countDownBlock{
 	height: 100px;
 	width: 100px;
-	background-color: #f39c12;
-	border: 1px solid #f39c12;
+	background-color: #3498db;
+	border: 1px solid #3498db;
 	border-radius: 20px;
 	float: right;
 	margin-top: 12px;
@@ -74,7 +71,7 @@ body{
 }
 
 .plusGame{
-	color: #d35400;
+	color: #e74c3c;
 	float: left;
 	width: 100%;
 	display: flex;
@@ -109,9 +106,9 @@ body{
 #gameInput{
 	width:450px;
 	background-color: #34495e;
-	border:3px solid #d35400;
+	border:3px solid #1abc9c;
 	border-radius: 20px;
-	padding: 15px;
+	padding: 20px;
 
 }
 
@@ -135,10 +132,89 @@ a,a:visited,a:hover{
 }
 #navSeperator{
 	height:3px;
-	background-color:#d35400;
+	background-color:#e74c3c;
 }
 
 .nav.navbar-nav.navbar-right li a{
 	color: #1abc9c !important;
 	font-size: 20px;
 	font-weight: bold;
+}
+
+
+
+input::-webkit-input-placeholder {
+color: #2e3131 !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+color: #2e3131 !important;  
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #2e3131 !important;  
+}
+
+input:-ms-input-placeholder {  
+color: #2e3131 !important;  
+}
+
+textarea::-webkit-textarea-placeholder{
+	color:#2e3131 !important;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #2e3131!important;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color: #2e3131 !important;
+}
+
+.form-control{
+	border-color: #e74c3c !important;
+	color: white;
+	margin-bottom: 25px !important;
+	background-color: transparent !important;
+
+}
+
+.form-group label{
+	color:#1abc9c !important;
+	font-size: 17px;
+}
+
+#addGameBtn{
+	background-color: #e74c3c;
+	border: none;
+	color: white;
+}
+
+.form-group select{
+	background-color: #34495e !important;
+}
+
+.ui-datepicker{
+	background-color: #34495e !important;
+	height: 280px !important;
+	width: 280px !important;
+	border: 3px solid #e74c3c;
+	border-radius: 15px;
+	padding-left:18px;
+	padding-top:15px;
+}
+.ui-datepicker-prev{
+	margin-right: 10px;
+}
+.ui-datepicker-calendar{
+	width: 250px;
+	height: 200px;
+}
+.ui-datepicker-month,.ui-datepicker-year{
+	color: white;
+}
+.ui-datepicker-calendar span{
+	color: white;
+}
+
+.removeGame{
+	float: right;
+}

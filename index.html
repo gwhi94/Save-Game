@@ -10,6 +10,14 @@
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	  <script src="moment.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	  <script>
+	  	$(function(){
+	  		$("#gameRelease").datepicker({
+	  			dateFormat:"dd/mm/yy"
+	  		});
+	  	});
+	  </script>
   </head>
   
   <body>
@@ -30,23 +38,7 @@
 			<div id="navSeperator">
 			</div>
 
-			</nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	</nav>
 
   	
   	<div class="container"> 		
@@ -68,14 +60,16 @@
 
   		<div class="modalAdd">
 	  		<div id="gameInput"> 				  		
-		  		<form>	  				
+		  		<h1 class="text-center" style="color:#e74c3c;
+		  			margin-top: 5px; margin-bottom: 9px;">add a game..</h1>
+		  		<form autocomplete="off">	  				
 			  		<div class="form-group">
 			  			<label for="gameName"style="color: white;">Name of Game:</label>
-			  			<input type="text" class="form-control" id="gameName">
+			  			<input type="text" class="form-control" id="gameName" >
 			  		</div>
 			  		<div class = "form-group">
 			  			<label for ="gamePlatform" style="color: white;">Platform:</label>
-			  			<select class="form-control" id="gamePlat">
+			  			<select class="form-control" id="gamePlat" >
 			  				<option>PS4</option>
 			  				<option>XBOX ONE</option>
 			  				<option>PC</option>
@@ -86,14 +80,20 @@
 			  			</select>
 			  		</div>
 			  		<div class="form-group">
-			  			<label for="releaseDate"style="color: white;"">Release Date (DD/MM/YYYY):</label>
-			  			<input type="text" class="form-control" id="gameRelease">
+			  			<label for="releaseDate"style="color: white;" >Release Date (DD/MM/YYYY):</label>
+			  			<input type="text" class="form-control" id="gameRelease" required>
 			  		</div>
 			  		<div class="form-group">
-			  			<label for="price"style="color: white;">Price:</label>
-			  			<input type="text" class="form-control" id="gamePrice">
+			  			<label for="priority"style="color: white;">Priority:</label>
+			  			<select class="form-control" id="gamePriority" >
+			  				<option>Must Get</option>
+			  				<option>High Priority</option>
+			  				<option>Priority</option>
+			  				<option>Maybe</option>
+			  				<option>Somewhat interested</option>
+			  			</select>
 			  		</div>
-			  		<button type="button" class="btn btn-default" id="addGameBtn">Add</button>			  			
+			  		<button type="button" class="btn btn-default" id="addGameBtn" disabled="">Add</button>			  			
 			  	</form>
 	  		</div>
 	  	</div>
