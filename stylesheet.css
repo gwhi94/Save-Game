@@ -1,3 +1,45 @@
+@media only screen and (min-width: 100px) {
+    .collapse {
+        display: block;
+    }
+
+    .navbar-header {
+        float: left;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+
+    .navbar-nav.navbar-left {
+       float: left;
+       margin: 0;
+    }
+
+    .navbar-nav.navbar-right {
+       float: right;
+       margin: 0;
+    }
+    .navbar-nav>li {
+        float: left;
+    }
+    .navbar-nav>li>a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+     .collapse {
+        display: none;
+     }
+
+     .navbar-header {
+        display: block;
+     }
+}
+
+
 *{
 	font-family: 'Work Sans', sans-serif;
 }
@@ -5,14 +47,17 @@
 body{
 	background-color: #1abc9c;
 }
+#ui-datepicker-div {display: none;}
 
 .portalRow{
 	display: flex;
 	align-items: center;
 }
 .portal{
-	height:750px;
-	background-color: #34495e;	
+	height:786px;
+	background-color: #34495e;
+	border:3px solid #3498db;
+	border-radius: 20px;
 }
 .container{
 	height:100vh;
@@ -21,18 +66,17 @@ body{
 
 .innerPortal{
 	border:2px solid #e74c3c;
-	height:600px;
+	height:640px;
 	margin-top: 100px;
-	border-radius: 20px;
+	border-left: none;
+	border-right: none;
 
 
 }
-#name,#plat,#release,#priority{	
+#name,#plat,#release,#priority,#gen{	
 	color: white;
 
-
 }
-
 #name{
 	display: inline-block;
 	margin-bottom: 5px;
@@ -43,9 +87,10 @@ body{
 	color: #7f8c8d;
 }
 
-#gameDiv{
-	border-bottom: 3px solid #f39c12;
+.gameDiv{
+	border-bottom: 3px solid  #e74c3c;
 	width:100%;
+	height:180px;
 }
 
 
@@ -106,7 +151,7 @@ body{
 #gameInput{
 	width:450px;
 	background-color: #34495e;
-	border:3px solid #1abc9c;
+	border:3px solid #3498db;;
 	border-radius: 20px;
 	padding: 20px;
 
@@ -129,6 +174,8 @@ a,a:visited,a:hover{
 	color: #1abc9c !important ;
 	font-size: 20px;
 	font-weight: bold;
+	display: inline-block;
+	float: left;
 }
 #navSeperator{
 	height:3px;
@@ -139,6 +186,8 @@ a,a:visited,a:hover{
 	color: #1abc9c !important;
 	font-size: 20px;
 	font-weight: bold;
+	display: inline-block;
+	float: right;
 }
 
 
@@ -178,12 +227,12 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 }
 
 .form-group label{
-	color:#1abc9c !important;
+	color:#3498db !important;
 	font-size: 17px;
 }
 
 #addGameBtn{
-	background-color: #e74c3c;
+	background-color: #3498db;;
 	border: none;
 	color: white;
 }
@@ -217,4 +266,65 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 
 .removeGame{
 	float: right;
+}
+#comparePrice{
+	display: inline-block;
+	margin-top: 3px;
+}
+
+.expandArrow{
+	color: #3498db;
+	float: left;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 10px;
+}
+.expandedSection{
+	height:450px;
+	border:3px solid #3498db;
+	border-radius: 20px;
+	margin-top: 5%;
+	padding:5px;
+	overflow: scroll;
+}
+.minimizeArrow{
+	color: #e74c3c;
+	float: left;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 10px;
+	margin-bottom: 10px;
+}
+.headline{
+	color:#1abc9c ;
+	display: inline;
+	width: 50%;
+}
+.author{
+	color: #7f8c8d;
+	margin-bottom: 2px;
+}
+.source{
+	color:#e74c3c;
+}
+.description{
+	color: white;
+}
+.newsDiv{
+	border-bottom: 2px solid #3498db;
+	height: 220px;
+	padding:8px;
+}
+.newsImg{
+	height:150px;
+	width:200px;
+	float:right;
+	margin-top:5%;
+	margin-left: 5px;
+	border:2px solid #e74c3c;
+	border-radius: 15px;
 }

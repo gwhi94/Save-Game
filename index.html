@@ -43,12 +43,15 @@
   	
   	<div class="container"> 		
   		<div class="row portalRow" style="height: 100vh;"> 			
-  			<div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 col-sm-offset-2 col-md-offset-3 col-lg-offset-3 portal">  				
+  			<div class="col-xs-10 col-sm-8 col-md-6 col-lg-6 col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-3 portal">  			
+  				<div class='plusGame'>
+  							<span class='glyphicon glyphicon-plus text-center'>
+  								
+  							</span>
+				</div>	 	
   				<div class="row">
-  					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 innerPortal"> 
-  						<div class='plusGame'>
-  							<span class='glyphicon glyphicon-plus text-center'></span>
-						</div>	 										
+  					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 innerPortal"> 
+  															
   					</div>
   				</div> 				
   			</div>
@@ -60,8 +63,8 @@
 
   		<div class="modalAdd">
 	  		<div id="gameInput"> 				  		
-		  		<h1 class="text-center" style="color:#e74c3c;
-		  			margin-top: 5px; margin-bottom: 9px;">add a game..</h1>
+		  		<h1 class="text-center" style="color:#3498db;;
+		  			margin-top: 5px; margin-bottom: 9px;">add a game...</h1>
 		  		<form autocomplete="off">	  				
 			  		<div class="form-group">
 			  			<label for="gameName"style="color: white;">Name of Game:</label>
@@ -77,6 +80,20 @@
 			  				<option>NINTENDO DS</option>
 			  				<option>NINTENDO WII</option>
 			  				<option>PS VITA</option>
+			  			</select>
+			  		</div>
+			  		<div class = "form-group">
+			  			<label for ="gameGenre" style="color: white;">Genre:</label>
+			  			<select class="form-control" id="gameGen" >
+			  				<option>Action</option>
+			  				<option>First Person Shooter</option>
+			  				<option>RPG</option>
+			  				<option>Horror</option>
+			  				<option>Simulation</option>
+			  				<option>Sci Fi</option>
+			  				<option>Strategy</option>
+			  				<option>Sports</option>
+			  				<option>MMO</option>
 			  			</select>
 			  		</div>
 			  		<div class="form-group">
@@ -97,17 +114,6 @@
 			  	</form>
 	  		</div>
 	  	</div>
-
-
- 
-
-
-
-
-
-
-
-
 
 
   </body>
