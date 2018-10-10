@@ -1,3 +1,5 @@
+
+
 var gameArr = [];
 
 
@@ -43,12 +45,12 @@ function popGames(){
 
 		var gameDiv = $(
 			"<div class = 'gameDiv'>"+
-			"<h4 id='name'>"+gameArr[i].name+"</h4>"+ " " +
+			"<h4 class='name'>"+gameArr[i].name+"</h4>"+ " " +
 			"<div class='countDownBlock'><p class='blockText text-center'>"+gameArr[i].daysLeft+"</p></div>"+
-			"<h5 id='plat'>"+"("+gameArr[i].platform+")"+
-			"<h5 id='gen'>"+gameArr[i].genre+
-			"<h5 id='release'>"+gameArr[i].releaseDate+
-			"<h5 id='priority'>"+gameArr[i].priority+"</h5>"+		
+			"<h5 class='plat'>"+"("+gameArr[i].platform+")"+
+			"<h5 class='gen'>"+gameArr[i].genre+
+			"<h5 class='release'>"+gameArr[i].releaseDate+
+			"<h5 class='priority'>"+gameArr[i].priority+"</h5>"+		
 			"<a class='compareLink' href ='https://pricespy.co.uk/search?q="+gameArr[i].name+gameArr[i].platform+"'"+"><h5 id='comparePrice'>Find Cheapest Deals</h5></a>"+							
 			"<div class='expandArrow'><span class='glyphicon glyphicon-chevron-down'></span></div>"+
 			"<div class='expandedSection'><div class='minimizeArrow'><span class='glyphicon glyphicon-chevron-up'></span></div></div>"+
@@ -57,8 +59,13 @@ function popGames(){
 	
 		$(".innerPortal").append(gameDiv);
 		gameArr[i].toDisplay = false; //sets to false to stop populating duplicate games
+
 	}
+
+
 }
+	
+	
 $('.expandedSection').hide();
     $(".expandArrow").off().on('click',function(e){
     	e.stopPropagation();
@@ -67,6 +74,8 @@ $('.expandedSection').hide();
     	$(this).hide();
     	$(currentDiv).css('border-bottom','none');   	
     	$(this).next('.expandedSection').toggle(); 
+    	var gameToFetch = $(this).siblings("h4").eq(0).html();
+    	getData(gameToFetch);
          
 });
 
@@ -81,6 +90,12 @@ $('.expandedSection').hide();
 
     });
 
+
+    var  elements = $(".expandedSection");
+
+    for (let i = 0; i < elements.length; i++){
+    	const ps = new PerfectScrollbar($(elements)[i]);
+    }
 
 
 removeGame();
@@ -136,7 +151,7 @@ $(".plusGame").on('click',function(){
 function removeGame(){
 		
 	$(".gameDiv").off().on('dblclick',function(){
-		let gameName = $(this).children("#name").html();
+		let gameName = $(this).children(".name").html();
 		$(this).css("display","none");
 		var index = gameArr.findIndex(x => x.name == gameName);
 		gameArr.splice(index,1);
@@ -147,9 +162,10 @@ function removeGame(){
 }
 
 
-function getData(){
+function getData(gameToFetch){
+	console.log(gameToFetch);
 	var url = 'https://newsapi.org/v2/everything?'+
-          'q=call of duty&' +
+          'q='+gameToFetch+'&' +
           'sources=google-news'+
           'from=2018-10-09&' +
           'sortBy=relevancy&' +
@@ -158,13 +174,14 @@ function getData(){
 var req = new Request(url);
 var articlesArray = [];
 
+//request for news articles using news API
 fetch(req)
     .then(function(response) {
         console.log(response.json().then(function(data){
         	for (let i = 0 ; i <=5;i++){
         		articlesArray.push(data.articles[i]);        		
         	
-        		
+        		//trimming of description and titles
         		var descriptionCaught = articlesArray[i].description;        		
         		var trimmedDescription = descriptionCaught.substring(0,85);
         		trimmedDescription = trimmedDescription+"...";
@@ -173,12 +190,7 @@ fetch(req)
         		var trimmedTitle = titleCaught.substring(0,57);
         		trimmedTitle = trimmedTitle+"...";
         		
-        	
-
-        		
-
-
-
+ 
         		var newsDiv = $(
 
     				"<div class ='newsDiv'>"+
@@ -203,14 +215,9 @@ fetch(req)
     });
 
 	
-	
-	
-
-
-    
-
-	
 }
+
+
 
 
 
