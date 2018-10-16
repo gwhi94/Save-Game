@@ -62,7 +62,6 @@ function popGames(){
 
 	}
 
-
 }
 	
 	
@@ -71,8 +70,7 @@ $('.expandedSection').hide();
     	e.stopPropagation();
    		var currentDiv = $(this).parents('.gameDiv');   	
     	$(".gameDiv").not(currentDiv).hide();  
-    	$(this).hide();
-    	$(currentDiv).css('border-bottom','none');   	
+    	$(this).hide();   	
     	$(this).next('.expandedSection').toggle(); 
     	var gameToFetch = $(this).siblings("h4").eq(0).html();
     	getData(gameToFetch);
@@ -84,8 +82,7 @@ $('.expandedSection').hide();
     	var currentSection = $(this).parents('.expandedSection');
     	$(currentSection).toggle(); 
     	$('.expandArrow').show();	
-    	var currentDiv = $(this).parents('.gameDiv');  	
-    	$(currentDiv).css('border-bottom','3px solid  #e74c3c');  	
+    	var currentDiv = $(this).parents('.gameDiv');  	 	
     	$(".gameDiv").not(currentDiv).show();
 
     });
@@ -163,7 +160,6 @@ function removeGame(){
 
 
 function getData(gameToFetch){
-	console.log(gameToFetch);
 	var url = 'https://newsapi.org/v2/everything?'+
           'q='+gameToFetch+'&' +
           'sources=google-news'+
@@ -209,20 +205,59 @@ fetch(req)
 
         	};
         }));
-
-        
-      
+     
     });
-
 	
 }
 
+$(document).ready(function(){
+	var url = 'https://newsapi.org/v2/everything?'+
+          'q=games&' +
+          'sources=google-news'+
+          'from=2018-10-09&' +
+          'sortBy=relevancy&' +
+          'apiKey=ad3db1ce23bd44e081754698f99b59d1';
+
+var req = new Request(url);
+var feedArticlesArray = [];
+
+fetch(req)
+    .then(function(response) {
+        console.log(response.json().then(function(data){
+        	for (let i = 0 ; i <=20;i++){
+        		feedArticlesArray.push(data.articles[i]);        		
+        	
+        		//trimming of description and titles
+        		var descriptionCaught = feedArticlesArray[i].description;        		
+        		var trimmedDescription = descriptionCaught.substring(0,150);
+        		trimmedDescription = trimmedDescription+"...";
+
+        		var titleCaught = feedArticlesArray[i].title;
+        		var trimmedTitle = titleCaught.substring(0,70);
+        		trimmedTitle = trimmedTitle+"...";
 
 
+        		var feedNewsDiv = $(
 
+    				"<div class ='feedNewsDiv'>"+
+					"<h4 class='feedHeadline text-center'>"+trimmedTitle+"</h4>"+
+					"<p class='feedSource text-center'>"+feedArticlesArray[i].source.name+"</p>"+
+					"<p class='feedDesc text-center'>"+trimmedDescription+"</p>"+
+					"<a class='feedLink text-center' href='"+feedArticlesArray[i].url+"'"+"><p>Full Article</p></a>"+
+					"</div>"
 
+    			
+    			);
 
-  
+    			$(".newsPortal").append(feedNewsDiv);
+	};
+        }));
+     
+    });
+
+});
+
+const ps = new PerfectScrollbar('.newsPortal')  ;
 
 
 

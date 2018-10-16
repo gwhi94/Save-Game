@@ -38,6 +38,15 @@
         display: block;
      }
 }
+@media only screen and (max-width: 1200px) {
+     #wrapper{
+     	width:100% !important;    	
+     }
+     .portal{
+     	border-radius:20px 0px 0px 20px !important;
+     	border-right-color: transparent !important;
+     }
+}
 
 
 *{
@@ -49,29 +58,67 @@ body{
 }
 #ui-datepicker-div {display: none;}
 
-.portalRow{
-	display: flex;
-	align-items: center;
-}
-.portal{
-	height:800px;
-	background-color: #34495e;
-	border:3px solid #3498db;
-	border-radius: 20px;
-}
-.container{
-	height:100vh;
 
+.portal{
+	height:87vh;
+	background-color: #34495e;
+	
+	border-radius: 20px 0px 0px 20px;
+	border-right:none;
+	border-top:0;
+	position: relative;
+	padding-right:0px;
+	padding-left: 0px;
+	}
+#wrapper{	
+	height:90%;
+	width:100%;
+	padding-top:0px;
+	position: relative;
+}
+.newsFeed{
+	height:87vh;
+	background-color: #34495e;
+	border-radius: 0px 20px 20px 0px;
+	border-right:none;
+	border-top:0;
+	position: relative;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .innerPortal{
-	border:2px solid #e74c3c;
-	height:640px;
+	height:80%;
+	margin-top: 40px;
+	border-left: none;
+	border-right: none;
+}
+.innerPortalMap{
+	height:550px;
 	margin-top: 100px;
 	border-left: none;
 	border-right: none;
 
+}
+.mapReadout{
+	border:3px solid black;
+	margin-top: 100px;
+	height:250px;
+	border:3px solid #6c5ce7;
+  	border-radius: 20px 0px 0px 20px !important;
+  	border-right:none;
+}
 
+#shopName{
+	font-size:25px;
+	color:#1abc9c;
+	font-weight: bold;
+	text-align: center;
+}
+#shopWeb,#shopAdd,#shopNum{
+	color:white;
+	font-size: 15px;
+	text-align: center;
 }
 .name,.plat,.release,.priority,.gen{	
 	color: white;
@@ -88,17 +135,20 @@ body{
 }
 
 .gameDiv{
-	border-bottom: 3px solid  #e74c3c;
+	border-top: 3px solid #6c5ce7;
 	width:100%;
 	height:180px;
+	padding-left:9px;
+	padding-right: 9px;
+	border-bottom: 3px solid #6c5ce7;
 }
 
 
 .countDownBlock{
-	height: 100px;
-	width: 100px;
-	background-color: #3498db;
-	border: 1px solid #3498db;
+	height: 130px;
+	width: 130px;
+	background-color: #1abc9c;
+	border: 1px solid #1abc9c;
 	border-radius: 20px;
 	float: right;
 	margin-top: 12px;
@@ -110,13 +160,23 @@ body{
 
 .blockText{
 	color: white;
-	font-size:35px;
+	font-size:45px;
 	text-decoration: bold;
 	
 }
+#map{
+  	height:100%;
+  	width:100%;
+  	float:left;
+  	border-top:2px solid white;
+  	margin-bottom: 2px;
+  	border:3px solid #6c5ce7;
+  	border-radius: 20px !important;
+  	
+ }
 
 .plusGame{
-	color: #e74c3c;
+	color: #1abc9c;
 	float: left;
 	width: 100%;
 	display: flex;
@@ -162,7 +222,6 @@ a,a:visited,a:hover{
 }
 
 .navbar.navbar-inverse{
-	margin-bottom: 0px;
 	background:#2e3131;;
 	border:0 !important;
 	box-shadow: none;
@@ -179,7 +238,7 @@ a,a:visited,a:hover{
 }
 #navSeperator{
 	height:3px;
-	background-color:#e74c3c;
+	background-color:#6c5ce7;
 }
 
 .nav.navbar-nav.navbar-right li a{
@@ -219,7 +278,7 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 }
 
 .form-control{
-	border-color: #e74c3c !important;
+	border-color: #6c5ce7 !important;
 	color: white;
 	margin-bottom: 25px !important;
 	background-color: transparent !important;
@@ -245,7 +304,7 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 	background-color: #34495e !important;
 	height: 280px !important;
 	width: 280px !important;
-	border: 3px solid #e74c3c;
+	border: 3px solid #6c5ce7;
 	border-radius: 15px;
 	padding-left:18px;
 	padding-top:15px;
@@ -273,7 +332,7 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 }
 
 .expandArrow{
-	color: #3498db;
+	color: #1abc9c;
 	float: left;
 	width: 100%;
 	display: flex;
@@ -282,7 +341,7 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 	height: 10px;
 }
 .expandedSection{
-	height:435px;
+	height:180%;
 	border:3px solid #3498db;
 	border-radius: 20px;
 	margin-top: 5%;
@@ -291,7 +350,7 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 	
 }
 .minimizeArrow{
-	color: #e74c3c;
+	color: #6c5ce7;
 	float: left;
 	width: 100%;
 	display: flex;
@@ -306,25 +365,48 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 	width: 60%;
 	margin-top:2%;
 }
+.feedHeadline{
+	color:#1abc9c ;
+	display: inline-block;
+	width: 100%;
+	margin-top:2%;
+
+}
 .author{
 	color: #7f8c8d;
 	margin-bottom: 2px;
 	display: inline-block;
 	width:60%;
 }
+
 .source{
-	color:#e74c3c;
+	color:#6c5ce7;
 	display: inline-block;
 	width:60%;
 }
+.feedSource{
+	color:#6c5ce7;
+	display: inline-block;
+	width:100%;
+
+}
 .description{
 	color: white;
-	width:60%;
+	width:100%;
+}
+.feedDesc{
+	color: white;
+	width:100%;
 }
 .newsDiv{
 	border-bottom: 2px solid #3498db;
-	height: 220px;
+	height: 80%;
 	padding:8px;
+}
+.feedNewsDiv{
+	border-bottom: 2px solid #3498db;
+	height: 220px;
+	padding:7px;	
 }
 .newsImg{
 	height:73%;
@@ -332,10 +414,49 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 	float:right;
 	margin-top:3%;
 	margin-left: 5px;
-	border:2px solid #e74c3c;
+	border:2px solid #6c5ce7;
 	border-radius: 15px;
 }
 
-.portalTitle{
-	
+.portalTitleBlock {
+    background-color: #6c5ce7;
+    width: 100%;
+    height:65px;
+    padding: 0;
+    border:1px solid transparent;
+    border-left:2px solid #6c5ce7;
+    border-radius:20px 0px 0px 0px;
+    border-top:0;
+    
 }
+.newsFeedTitleBlock{
+	background-color: #6c5ce7;
+    width: 100%;
+    height:65px;
+    padding: 0;
+    border:3px solid transparent;
+    border-radius:0px 20px 0px 0px;
+    border-top:0;
+    
+}
+.portalTitle{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top:0;
+	margin: auto
+}
+
+.newsFeedTitle{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top:0;
+	margin: auto
+}
+.newsPortal{
+	width:100%;
+	height: 90%;
+
+}
+
