@@ -48,6 +48,13 @@
      }
 }
 
+@media only screen and (max-width:1300px){
+	.feedNewsDiv{
+		height:300px !important;
+	}
+}
+
+
 
 *{
 	font-family: 'Work Sans', sans-serif;
@@ -55,6 +62,7 @@
 
 body{
 	background-color: #1abc9c;
+	overflow: hidden;
 }
 #ui-datepicker-div {display: none;}
 
@@ -62,7 +70,7 @@ body{
 .portal{
 	height:87vh;
 	background-color: #34495e;
-	
+	overflow:hidden;
 	border-radius: 20px 0px 0px 20px;
 	border-right:none;
 	border-top:0;
@@ -70,11 +78,25 @@ body{
 	padding-right:0px;
 	padding-left: 0px;
 	}
+.mapPortal{
+	top:89px;
+	right:-1100px;
+	height:87vh;
+	background-color: #34495e;
+	overflow:hidden;
+	border-radius: 20px 0px 0px 20px;
+	border-right:none;
+	border-top:0;
+	position: absolute;
+	padding-right:0px;
+	padding-left: 0px;
+	}
 #wrapper{	
 	height:90%;
 	width:100%;
-	padding-top:0px;
+	padding-top:1%;
 	position: relative;
+	overflow: hidden;
 }
 .newsFeed{
 	height:87vh;
@@ -88,37 +110,34 @@ body{
 }
 
 .innerPortal{
-	height:80%;
-	margin-top: 40px;
+	height:90%;
+	width:100%;
 	border-left: none;
 	border-right: none;
 }
 .innerPortalMap{
-	height:550px;
-	margin-top: 100px;
+	height:100%;
 	border-left: none;
 	border-right: none;
 
 }
 .mapReadout{
-	border:3px solid black;
-	margin-top: 100px;
 	height:250px;
-	border:3px solid #6c5ce7;
-  	border-radius: 20px 0px 0px 20px !important;
-  	border-right:none;
+	padding-right:40px;
+	
 }
 
 #shopName{
 	font-size:25px;
 	color:#1abc9c;
 	font-weight: bold;
-	text-align: center;
+	text-align: left;
 }
-#shopWeb,#shopAdd,#shopNum{
+#shopWeb,#shopAdd,#shopNum,#shopPage{
 	color:white;
 	font-size: 15px;
-	text-align: center;
+	text-align: left;
+	width:60%;
 }
 .name,.plat,.release,.priority,.gen{	
 	color: white;
@@ -135,12 +154,11 @@ body{
 }
 
 .gameDiv{
-	border-top: 3px solid #6c5ce7;
 	width:100%;
 	height:180px;
 	padding-left:9px;
 	padding-right: 9px;
-	border-bottom: 3px solid #6c5ce7;
+	border-bottom: 2px solid #6c5ce7;
 }
 
 
@@ -170,8 +188,7 @@ body{
   	float:left;
   	border-top:2px solid white;
   	margin-bottom: 2px;
-  	border:3px solid #6c5ce7;
-  	border-radius: 20px !important;
+  	border-right:3px solid #6c5ce7;
   	
  }
 
@@ -341,7 +358,7 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 	height: 10px;
 }
 .expandedSection{
-	height:180%;
+	height:700px;
 	border:3px solid #3498db;
 	border-radius: 20px;
 	margin-top: 5%;
@@ -356,13 +373,14 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 10px;
-	margin-bottom: 10px;
+	height: 15px;
+	background-color: #34495e;
+	
 }
 .headline{
 	color:#1abc9c ;
 	display: inline-block;
-	width: 60%;
+	width: 100%;
 	margin-top:2%;
 }
 .feedHeadline{
@@ -376,13 +394,13 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 	color: #7f8c8d;
 	margin-bottom: 2px;
 	display: inline-block;
-	width:60%;
+	width:100%;
 }
 
 .source{
 	color:#6c5ce7;
 	display: inline-block;
-	width:60%;
+	width:100%;
 }
 .feedSource{
 	color:#6c5ce7;
@@ -400,22 +418,16 @@ input:-moz-placeholder, textarea:-moz-placeholder {
 }
 .newsDiv{
 	border-bottom: 2px solid #3498db;
-	height: 80%;
+	height: 220px;
 	padding:8px;
+	width:100%;
+	
+	
 }
 .feedNewsDiv{
 	border-bottom: 2px solid #3498db;
 	height: 220px;
 	padding:7px;	
-}
-.newsImg{
-	height:73%;
-	width:34%;
-	float:right;
-	margin-top:3%;
-	margin-left: 5px;
-	border:2px solid #6c5ce7;
-	border-radius: 15px;
 }
 
 .portalTitleBlock {

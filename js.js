@@ -1,6 +1,15 @@
 
-
+if(localStorage.getItem('games')===null){
 var gameArr = [];
+}
+else{
+	gameArr = JSON.parse(localStorage['games']);
+
+	for(let i =0; i < gameArr.length;i++){
+		gameArr[i].toDisplay = true;
+	}
+	popGames();
+}
 
 
 
@@ -31,6 +40,13 @@ function addNewGame(gameName,platform,genre,releaseDate,priority,daysLeft,toDisp
 
 	var newGame = new game(gameName,platform,genre,releaseDate,priority,daysLeft,toDisplay);
 	gameArr.push(newGame);
+	if(typeof(Storage)!= "undefined"){
+		localStorage.clear();
+		let JSONgameArr = JSON.stringify(gameArr);
+		localStorage.setItem('games',JSONgameArr);
+	}else{
+		alert("Sorry no web storage support");
+	}
 	popGames();
 
 }
@@ -61,31 +77,28 @@ function popGames(){
 		gameArr[i].toDisplay = false; //sets to false to stop populating duplicate games
 
 	}
-
+const ps = new PerfectScrollbar('.innerPortal');
 }
 	
 	
 $('.expandedSection').hide();
-    $(".expandArrow").off().on('click',function(e){
+$(document).ready(function(){
+    $(".gameDiv").off().on('click',function(e){
     	e.stopPropagation();
-   		var currentDiv = $(this).parents('.gameDiv');   	
-    	$(".gameDiv").not(currentDiv).hide();  
-    	$(this).hide();   	
-    	$(this).next('.expandedSection').toggle(); 
-    	var gameToFetch = $(this).siblings("h4").eq(0).html();
+    	if($(".expandedSection").is(":visible")){
+    		$(this).children('.expandedSection').toggle();
+    		$(".gameDiv").not(currentDiv).show();
+    	}else{
+   		var currentDiv = $(this); 	
+    	$(".gameDiv").not(currentDiv).hide();   	
+    	$(this).children('.expandedSection').toggle();
+    	var gameToFetch = $(this).children("h4").eq(0).html();
     	getData(gameToFetch);
-         
+  
+   }      
+});
 });
 
-    $('.minimizeArrow').off().on('click',function(e){
-    	e.stopPropagation;   	
-    	var currentSection = $(this).parents('.expandedSection');
-    	$(currentSection).toggle(); 
-    	$('.expandArrow').show();	
-    	var currentDiv = $(this).parents('.gameDiv');  	 	
-    	$(".gameDiv").not(currentDiv).show();
-
-    });
 
 
     var  elements = $(".expandedSection");
@@ -174,12 +187,12 @@ var articlesArray = [];
 fetch(req)
     .then(function(response) {
         console.log(response.json().then(function(data){
-        	for (let i = 0 ; i <=5;i++){
+        	for (let i = 0 ; i <=20;i++){
         		articlesArray.push(data.articles[i]);        		
         	
         		//trimming of description and titles
         		var descriptionCaught = articlesArray[i].description;        		
-        		var trimmedDescription = descriptionCaught.substring(0,85);
+        		var trimmedDescription = descriptionCaught.substring(0,300);
         		trimmedDescription = trimmedDescription+"...";
 
         		var titleCaught = articlesArray[i].title;
@@ -190,12 +203,11 @@ fetch(req)
         		var newsDiv = $(
 
     				"<div class ='newsDiv'>"+
-					"<h4 class='headline'>"+trimmedTitle+"</h4>"+
-					"<img class='newsImg' src='"+articlesArray[i].urlToImage+"'"+">"+
-					"<p class='author'>"+articlesArray[i].author+"</p>"+
-					"<p class='source'>"+articlesArray[i].source.name+"</p>"+
-					"<p class='description'>"+trimmedDescription+"</p>"+
-					"<a class='compareLink' href='"+articlesArray[i].url+"'"+"><p>Full Article</p></a>"+
+					"<h4 class='headline text-center'>"+trimmedTitle+"</h4>"+
+					"<p class='author text-center'>"+articlesArray[i].author+"</p>"+
+					"<p class='source text-center'>"+articlesArray[i].source.name+"</p>"+
+					"<p class='description text-center'>"+trimmedDescription+"</p>"+
+					"<a class='compareLink text-center' href='"+articlesArray[i].url+"'"+"><p>Full Article</p></a>"+
 					"</div>"
 
     			
@@ -250,14 +262,16 @@ fetch(req)
     			);
 
     			$(".newsPortal").append(feedNewsDiv);
+
 	};
         }));
      
     });
-
+const ps = new PerfectScrollbar('.newsPortal');
 });
 
-const ps = new PerfectScrollbar('.newsPortal')  ;
+
+
 
 
 
